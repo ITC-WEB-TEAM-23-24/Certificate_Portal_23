@@ -1,0 +1,36 @@
+.login{
+    width: 100vw;
+    height: 100vh;
+    background-color: #2659ac;
+    color: #f8d447;    
+    font-size: 1.7rem;
+    font-weight: 800;
+
+}
+
+.login header{
+   font-size: 3rem;
+   position: static;
+   text-align: center;
+   padding-top: 50px;
+}
+
+.login-wrapper{
+    padding-top: 100px;
+    width: 80vw;
+}
+
+.login-wrapper .boxes{
+    box-shadow: 0px 0px 10px 0px #000000;       
+}
+
+.loginimg{
+    position: fixed;
+    right: 30vw;
+    top: 50vh;
+}
+
+.login-footer{
+    position: absolute;
+    bottom: 0;
+}
