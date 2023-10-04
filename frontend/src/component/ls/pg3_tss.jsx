@@ -1,20 +1,20 @@
 // Pg3.jsx
 import React from 'react';
-import gif2 from "../assets/img/gif4.gif";
-import Layout from './layout';
+import gif2 from "../../assets/img/gif4.gif";
+import Layout from '../layout';
 import { useLocation } from 'react-router-dom';
 
-function Pg3({ project,ment}) {
+function Pg3_TSS(){
   const data = JSON.parse(localStorage.getItem('project_data'));
-
+  const url = localStorage.getItem('selectedOption');
   return (
     <Layout>
-      <h2>Congratulations, You can download Certificate</h2>
+      <h2>Congratulations, You can download Certificate for TSS</h2>
       <img src={gif2} alt="" srcSet="" />
       <div className='box-wrapper'>
         <div className='boxes'>
           <a
-            href={`http://127.0.0.1:8000/${project}/${ment}/download/${data.roll_number}`}
+            href={`http://127.0.0.1:8000/download/tss/${data.roll_number}`}
             className='box'
           > 
             Download Certificate
@@ -25,4 +25,4 @@ function Pg3({ project,ment}) {
   );
 }
 
-export default Pg3;
+export default Pg3_TSS;

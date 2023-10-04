@@ -1,8 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import i1 from "../assets/img/home.png"
-import Footer from './footer'
-import Layout from './layout'
+// Pg1.jsx
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Layout from './layout';
 
 function Pg1() {
   return (
@@ -12,13 +11,24 @@ function Pg1() {
         It's been a wild ride since I've started out! I have worked with big and small brands from climate tech, fintech, business development, lifestyle, manufacturing, real estate and everything in between.
       </p>
       <div className='box-wrapper'>
-        <Link to={"/2"} className='boxes'><div className='box'>Kritika Summer Project</div></Link>
-        <Link to={"/2"} className='boxes'><div className='box'>Technical Summer School</div></Link>
-        <Link to={"/2"} className='boxes'><div className='box'>ITSP</div></Link>
-        <Link to={"/2"} className='boxes'><div className='box'>Season of Code</div></Link>
-        <Link to={"/2"} className='boxes'><div className='box'>Summer of Science</div></Link>
+        <Link to={{ pathname: "/2/ksp"}} className='boxes'>
+          <div className='box'>Kritika Summer Project</div>
+        </Link>
+        <Link to={{ pathname: "/ls"}} className='boxes'>
+          <div className='box'>Learner Space</div>
+        </Link>
+        <Link to={{ pathname: "/2/itsp"}} className='boxes'>
+          <div className='box'>ITSP</div>
+        </Link>
+        <Link to={{ pathname: "/2/soc"}} className='boxes'>
+          <div className='box'>Season of Code</div>
+        </Link>
+        <Link to={{ pathname: "/2/sos"}} className='boxes'>
+          <div className='box'>Summer of Science</div>
+        </Link>
       </div>
     </Layout>
-  )
+  );
 }
-export default Pg1
+
+export default Pg1;
