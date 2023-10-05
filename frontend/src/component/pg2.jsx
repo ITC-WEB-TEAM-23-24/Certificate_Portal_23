@@ -43,7 +43,7 @@ function Pg2({project}) {
     <Layout>
       <Link to={"/1"}><i></i></Link>
       <h2>For which position do you want a certificate?</h2>
-      <img src={gif} alt="" srcSet="" />
+      <img src={gif} alt="" srcSet="" className='dumb_img'/>
       <div className='box-wrapper'>
         <Link to={{ pathname: menteeUrl}} className='boxes'><div className='box'>Mentee</div></Link>
         <Link to={{ pathname: mentorUrl}} className='boxes'><div className='box'>Mentor</div></Link>

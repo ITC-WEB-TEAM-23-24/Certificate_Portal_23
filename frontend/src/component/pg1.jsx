@@ -6,12 +6,13 @@ import Layout from './layout';
 function Pg1() {
   return (
     <Layout>
-      <h2>A small selection of some recent events</h2>
+      <h2>Enjoyed the Process? Now enjoy results!! :)</h2>
       <p>
-        It's been a wild ride since I've started out! I have worked with big and small brands from climate tech, fintech, business development, lifestyle, manufacturing, real estate and everything in between.
+      
+Celebrate your success at ITSA! Your dedication to technical excellence during the summer activities shines through in every certificate – a testament to your skills and commitment. 
       </p>
       <div className='box-wrapper'>
-        <Link to={{ pathname: "/2/ksp"}} className='boxes'>
+        <Link to={{ pathname: "/soon"}} className='boxes'>
           <div className='box'>Kritika Summer Project</div>
         </Link>
         <Link to={{ pathname: "/ls"}} className='boxes'>
@@ -20,10 +21,10 @@ function Pg1() {
         <Link to={{ pathname: "/2/itsp"}} className='boxes'>
           <div className='box'>ITSP</div>
         </Link>
-        <Link to={{ pathname: "/2/soc"}} className='boxes'>
+        <Link to={{ pathname: "/soon"}} className='boxes'>
           <div className='box'>Season of Code</div>
         </Link>
-        <Link to={{ pathname: "/2/sos"}} className='boxes'>
+        <Link to={{ pathname: "/soon"}} className='boxes'>
           <div className='box'>Summer of Science</div>
         </Link>
       </div>

@@ -15,7 +15,7 @@ export default function Auth() {
                 navigate('/1');
             })
             .catch((err) => {
-            //    navigate('/');
+                navigate('/');
                 console.log(err);
             });
         } catch (error) {

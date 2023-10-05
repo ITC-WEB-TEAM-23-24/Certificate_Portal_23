@@ -13,7 +13,7 @@ export default function  Login(){
             <div className='box-wrapper login-wrapper'>
                 <Link to={href} className='boxes'><div className='box'>SSO LOGIN</div></Link>
             </div>
-            <img src={loginimg} className="loginimg "alt="" srcSet="" />
+            <img src={loginimg} className="loginimg"alt="" srcSet="" />
             
             <div className='login-footer footer container'>
                 Developed by Web Team | Institute Technical Council with &#128155; 

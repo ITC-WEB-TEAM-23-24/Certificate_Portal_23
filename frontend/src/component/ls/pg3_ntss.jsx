@@ -9,9 +9,9 @@ function Pg3_NTSS(){
   const url = localStorage.getItem('selectedOption');
   return (
     <Layout>
-      <h2>Congratulations, You can download Certificate for NSS</h2>
-      <img src={gif2} alt="" srcSet="" />
-      <div className='box-wrapper'>
+      <h2>Congratulations, You can download Certificate for NTSS</h2>
+      <img src={gif2} alt="" srcSet="" className='dumb_img'/>
+      <div className='box-wrapper pg3'>
         <div className='boxes'>
           <a
             href={`http://127.0.0.1:8000/download/ntss/${data.roll_number}`}

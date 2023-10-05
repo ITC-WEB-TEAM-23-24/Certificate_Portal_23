@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import {Routes, Route, BrowserRouter} from "react-router-dom"
 import Login from "./component/login";
 import Auth from './component/auth';
-import Footer from './component/footer';
 import Pg1 from './component/pg1';
 import Pg2 from "./component/pg2";
 import Pg3 from "./component/pg3";
@@ -11,6 +10,7 @@ import Pg4 from "./component/pg4";
 import Pg_ls_2 from './component/ls/pg_ls_2';
 import Pg3_NTSS from './component/ls/pg3_ntss';
 import Pg3_TSS from './component/ls/pg3_tss';
+import Coming_soon from './component/soon';
 
 function App() {
   return (
@@ -40,6 +40,8 @@ function App() {
         <Route path="/ls" element={<Pg_ls_2/>} />
         <Route path="/3/ntss" element={<Pg3_NTSS/>}/>
         <Route path="/3/tss" element={<Pg3_TSS/>}/>
+
+        <Route path="/soon" element={<Coming_soon/>} />
       </Routes>
     </BrowserRouter>
   );

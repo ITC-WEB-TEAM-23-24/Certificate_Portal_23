@@ -35,11 +35,11 @@ function Pg_ls_2() {
   return (
     <Layout>
       <Link to={"/1"}><i></i></Link>
-      <h2>You wanted certificate for which position?</h2>
-      <img src={gif} alt="" srcSet="" />
+      <h2>You wanted certificate for which courses?</h2>
+      <img src={gif} alt="" srcSet="" className='dumb_img'/>
       <div className='box-wrapper'>
-        <Link to={{ pathname: ntssUrl}} className='boxes'><div className='box'>NTSS</div></Link>
-        <Link to={{ pathname: tssUrl}} className='boxes'><div className='box'>TSS</div></Link>
+        <Link to={{ pathname: ntssUrl}} className='boxes'><div className='box'>Non-Tech SS</div></Link>
+        <Link to={{ pathname: tssUrl}} className='boxes'><div className='box'>Tech SS</div></Link>
       </div>
     </Layout>
   );

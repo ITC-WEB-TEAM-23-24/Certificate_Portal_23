@@ -10,8 +10,8 @@ function Pg3({ project,ment}) {
   return (
     <Layout>
       <h2>Congratulations, You can download Certificate</h2>
-      <img src={gif2} alt="" srcSet="" />
-      <div className='box-wrapper'>
+      <img src={gif2} alt="" srcSet="" className='dumb_img' />
+      <div className='box-wrapper pg3'>
         <div className='boxes'>
           <a
             href={`http://127.0.0.1:8000/${project}/${ment}/download/${data.roll_number}`}
