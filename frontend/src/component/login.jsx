@@ -4,7 +4,7 @@ import "../assets/css/App.css"
 import { Link } from "react-router-dom";
 import loginimg from "../assets/img/login.png"
 
-const href="https://gymkhana.iitb.ac.in/profiles/oauth/authorize/?client_id=CaDPyQf6Yf8y2529IXWZP0QXSWE3DjVzfaIZNTLu&response_type=code&scope=profile picture ldap program&redirect_uri=http://localhost:3000/0"
+const href="https://gymkhana.iitb.ac.in/profiles/oauth/authorize/?client_id=GrPHTL6apOjMxGVxK8JINy755G7LbZBKsEGS0ho4&response_type=code&scope=profile picture ldap program&redirect_uri=http://localhost:3000/0"
 
 export default function  Login(){
     return(
@@ -16,7 +16,7 @@ export default function  Login(){
             <img src={loginimg} className="loginimg"alt="" srcSet="" />
             
             <div className='login-footer footer container'>
-                Developed by Web Team | Institute Technical Council with &#128155; 
+            Developed by the Web Team with &#128155; | Institute Technical Council 2023
             </div>
         </div>
     )

@@ -6,7 +6,7 @@ import Layout from './layout';
 function Pg1() {
   return (
     <Layout>
-      <h2>Enjoyed the Process? Now enjoy results!! :)</h2>
+      <h2>Enjoyed the Process? Now enjoy the results!! :)</h2>
       <p>
       
 Celebrate your success at ITSA! Your dedication to technical excellence during the summer activities shines through in every certificate – a testament to your skills and commitment. 

@@ -17,13 +17,15 @@ import zipfile
 def posts(request):
     headers = { "Authorization": "Basic "
                 + base64.b64encode(
-                    f"CaDPyQf6Yf8y2529IXWZP0QXSWE3DjVzfaIZNTLu:UVZwd9alkkrgRvp8Mf0CrPTl8co02RnN0I27REwwthSFeXvn4ijT8NO3RZ39YuYx0vf8UbgOaPFo8oAAF7rvhjXDh45CgxOkfFPEmFaVM76aJsldztIDemG6AXMmgKmU".encode("utf-8")
+                    f"GrPHTL6apOjMxGVxK8JINy755G7LbZBKsEGS0ho4:lUI5RY5h0mSt2Z9EEokTmTddWGhWv4fS2UDpVTvq4CPu81L78LN0Ok88jdswXwZOo0fFq60kxbRnV5Q3xzzqnL5at1xGtnGB9GiQNj31NGoOB6BrS2OwJQJ30csRG9YA".encode("utf-8")
                 ).decode("utf-8"),
                 "Content-Type": "application/x-www-form-urlencoded",
     }
 
     data = JSONParser().parse(request)
     r = requests.post('https://gymkhana.iitb.ac.in/profiles/oauth/token/', data='code='+data.get('code')+'&grant_type=authorization_code', headers=headers)
+    print('++++++++++++++++++++++++++++++')
+    print(r)
     b = requests.get('https://gymkhana.iitb.ac.in/profiles/user/api/user/?fields=first_name,last_name,roll_number', headers={'Authorization':'Bearer '+r.json()['access_token']})
     data=b.json()
 

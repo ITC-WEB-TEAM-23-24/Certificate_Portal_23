@@ -4,7 +4,7 @@ import "../assets/css/footer.css"
 function Footer() {
   return (
     <div className='footer container'>
-        Developed by Web Team | Institute Technical Council with &#128155; 
+        Developed by the Web Team with &#128155; | Institute Technical Council 2023
         </div>
   )
 }
