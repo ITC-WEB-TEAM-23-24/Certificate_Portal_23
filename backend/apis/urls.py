@@ -19,4 +19,7 @@ urlpatterns = [
     path('ls/<str:rollno>',views.ls_check),
     path('download/ntss/<str:rollno>',views.download_certificates_ntss),
     path('download/tss/<str:rollno>',views.download_certificates_tss),
+
+    path('sos/<str:rollno>',views.sos_check),
+    path('sos/mentee/download/<str:rollno>',views.download_certificate_sos),
 ]

@@ -24,7 +24,7 @@ Celebrate your success at ITSA! Your dedication to technical excellence during t
         <Link to={{ pathname: "/soon"}} className='boxes'>
           <div className='box'>Season of Code</div>
         </Link>
-        <Link to={{ pathname: "/soon"}} className='boxes'>
+        <Link to={{ pathname: "/2/sos"}} className='boxes'>
           <div className='box'>Summer of Science</div>
         </Link>
       </div>

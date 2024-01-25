@@ -91,9 +91,17 @@ def soc_check(request, rollno):
 
 def sos_check(request, rollno):
 
-    data = pd.read_csv((settings.BASE_DIR / "static/Book1.csv").resolve())
-    is_mentee = roll_checker(rollno, data)
-    is_mentor = roll_checker(rollno, data)
+    data = pd.read_csv((settings.BASE_DIR / "static/sos.csv").resolve())
+    is_mentee = False
+
+    for roll_number in data['rollno'].values:
+        if roll_number.lower() == rollno:
+            is_mentee = True
+            break
+
+    is_mentor = False
+
+    print("++++++++++++++++++++++++++"+ rollno + str(is_mentee) + "++++++++++++++++++++++++++")
     
     response_data = {
         "is_mentee": is_mentee,
@@ -242,3 +250,41 @@ def download_certificate_itsp(request, rollno):
     os.remove(certificate_path_str)
 
     return response
+
+def download_certificate_sos(request, rollno):
+
+    data = pd.read_csv((settings.BASE_DIR / "static/sos.csv").resolve())
+    template = Image.open((settings.BASE_DIR / 'static/sos.png').resolve())
+    draw = ImageDraw.Draw(template)
+
+    fontpatha = (settings.BASE_DIR / 'static/charm.ttf').resolve()
+    fontpathb = (settings.BASE_DIR / 'static/robocon.ttf').resolve()
+    fonta = ImageFont.truetype(str(fontpatha), size=200)
+    fontb = ImageFont.truetype(str(fontpathb), size=150)
+
+    certificate_data = data[data['rollno'].str.lower() == rollno.lower()].iloc[0]
+    name = certificate_data['name']
+    team = certificate_data['topic']
+
+    name_width, name_height = draw.textsize(name, font=fonta)
+    team_width, team_height = draw.textsize(team, font=fontb)
+    image_width, image_height = template.size
+
+    x1 = (image_width - name_width) // 2
+    x2 = (image_width - team_width) // 2
+    draw.text((x1, 2000), name, fill=(0,0,0), font=fonta)
+    draw.text((x2, 2650), team, fill=(0,0,0), font=fontb)
+
+    certificate_filename = f"{rollno}_itsp_certificate.png"
+    certificate_path = os.path.join(settings.MEDIA_ROOT, certificate_filename)
+    certificate_path_str = str(certificate_path)
+
+    template.save(certificate_path_str, format='PNG')
+
+    with open(certificate_path, 'rb') as certificate_file:
+        response = HttpResponse(content=certificate_file.read(), content_type='image/png')
+        response['Content-Disposition'] = f'attachment; filename="{certificate_filename}"'
+    os.remove(certificate_path_str)
+
+    return response
+
