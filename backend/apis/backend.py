@@ -10,8 +10,9 @@ def generate_certificate(roll_number, data_file, template_image, output_file):
     else:
         raise ValueError("Unsupported data file format. Please provide an Excel (.xlsx) or CSV (.csv) file.")
 
+    df['Roll Number'] = df['Roll Number'].str.lower()
     # Search for data related to the given roll number
-    student_data = df[df['Roll Number'] == roll_number]
+    student_data = df[df['Roll Number'] == roll_number.lower()]
 
     if student_data.empty:
         raise ValueError(f"Roll number {roll_number} not found in the data file.")

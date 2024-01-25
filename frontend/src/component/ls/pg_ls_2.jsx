@@ -15,13 +15,13 @@ function Pg_ls_2() {
   useEffect(() => {
     const checkRoles = async (rollNumber) => {
       try {
-        const response = await axios.get(`http://127.0.0.1:8000/ls/${rollNumber}`);
+        const response = await axios.get(`https://itc.gymkhana.iitb.ac.in/certificateBackend/ls/${rollNumber}`);
 
         // Update URL variables based on the flag value
-        if (response.data.in_ntss) {
+        if (response.data.in_ntss[0] == true) {
           setNtssUrl('/3/ntss');
         }
-        if (response.data.in_tss) {
+        if (response.data.in_tss[0] == true) {
           setTssUrl('/3/tss');
         }
       } catch (error) {

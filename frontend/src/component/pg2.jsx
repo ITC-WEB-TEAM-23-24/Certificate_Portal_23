@@ -15,10 +15,10 @@ function Pg2({project}) {
   useEffect(() => {
     const checkRoles = async (rollNumber, project) => {
       try {
-        const response = await axios.get(`http://127.0.0.1:8000/${project}/${rollNumber}`);
+        const response = await axios.get(`https://itc.gymkhana.iitb.ac.in/certificateBackend/${project}/${rollNumber}`);
         setIsMentee(response.data.is_mentee);
         setIsMentor(response.data.is_mentor);
-        console.log(project)
+        // console.log(project)
 
         // Update URL variables based on the flag value
         if (response.data.is_mentee) {

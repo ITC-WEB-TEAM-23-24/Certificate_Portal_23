@@ -11,6 +11,7 @@ from PIL import Image, ImageDraw, ImageFont
 from django.http import HttpResponse
 import os
 import zipfile
+import shutil
 
 @permission_classes((AllowAny,))
 @csrf_exempt
@@ -35,9 +36,21 @@ def posts(request):
     user_data = {'name':data['first_name'] + ' ' + data['last_name'],'roll_number':data['roll_number']}
     return JsonResponse(user_data)
 
-def roll_checker(roll_number, data):
+def remove_files_in_folder(folder_path):
+    # Ensure that the folder exists
+    if os.path.exists(folder_path) and os.path.isdir(folder_path):
+        # Iterate through all items in the folder
+        for item in os.listdir(folder_path):
+            item_path = os.path.join(folder_path, item)
 
-    if roll_number in data['roll_number'].values:
+            # Check if the item is a file
+            if os.path.isfile(item_path):
+                os.remove(item_path)  # Remove the file
+
+def roll_checker(roll_number, data):
+    
+    data['roll_number'] = data['roll_number'].str.lower()
+    if roll_number.lower() in data['roll_number'].values:
         return True
     else :
         return False
@@ -103,12 +116,15 @@ def ls_check(request, rollno):
 def download_certificates_ntss(request, rollno):
     data = pd.read_csv((settings.BASE_DIR / "static/ntss.csv").resolve())
     temp_dir = os.path.join(settings.MEDIA_ROOT, 'temp_certificates')
-    os.makedirs(temp_dir, exist_ok=True)
+    # os.makedirs(temp_dir, exist_ok=True)
+    # os.chmod(temp_dir, 0o755)
+
 
     zip_filename = f"{rollno}_ntss_certificates.zip"
     zip_path = os.path.join(settings.MEDIA_ROOT, zip_filename)
+    data['roll_number'] = data['roll_number'].str.lower()
     with zipfile.ZipFile(zip_path, 'w') as zip_file:
-        for index, certificate_data in data[data['roll_number'] == rollno].iterrows():
+        for index, certificate_data in data[data['roll_number'] == rollno.lower()].iterrows():
             template = Image.open((settings.BASE_DIR / 'static/temp_ntss.png').resolve())
 
             draw = ImageDraw.Draw(template)
@@ -138,7 +154,8 @@ def download_certificates_ntss(request, rollno):
         response = HttpResponse(content=zip_file.read(), content_type='application/zip')
         response['Content-Disposition'] = f'attachment; filename="{zip_filename}"'
 
-    os.rmdir(temp_dir)
+    # os.rmdir(temp_dir)
+    remove_files_in_folder(temp_dir)
     os.remove(zip_path)
 
     return response
@@ -146,12 +163,14 @@ def download_certificates_ntss(request, rollno):
 def download_certificates_tss(request, rollno):
     data = pd.read_csv((settings.BASE_DIR / "static/tss.csv").resolve())
     temp_dir = os.path.join(settings.MEDIA_ROOT, 'temp_certificates')
-    os.makedirs(temp_dir, exist_ok=True)
+    # os.makedirs(temp_dir,  exist_ok=True)
+    # os.chmod(temp_dir, 0o755)
 
     zip_filename = f"{rollno}_tss_certificates.zip"
     zip_path = os.path.join(settings.MEDIA_ROOT, zip_filename)
+    data['roll_number'] = data['roll_number'].str.lower()
     with zipfile.ZipFile(zip_path, 'w') as zip_file:
-        for index, certificate_data in data[data['roll_number'] == rollno].iterrows():
+        for index, certificate_data in data[data['roll_number'] == rollno.lower()].iterrows():
             template = Image.open((settings.BASE_DIR / 'static/temp_tss.png').resolve())
 
             draw = ImageDraw.Draw(template)
@@ -181,7 +200,8 @@ def download_certificates_tss(request, rollno):
         response = HttpResponse(content=zip_file.read(), content_type='application/zip')
         response['Content-Disposition'] = f'attachment; filename="{zip_filename}"'
 
-    os.rmdir(temp_dir)
+    # os.rmdir(temp_dir)
+    remove_files_in_folder(temp_dir)
     os.remove(zip_path)
     return response
 
@@ -196,7 +216,8 @@ def download_certificate_itsp(request, rollno):
     fonta = ImageFont.truetype(str(fontpatha), size=100)
     fontb = ImageFont.truetype(str(fontpathb), size=50)
 
-    certificate_data = data[data['roll_number'] == rollno].iloc[0]
+    data['roll_number'] = data['roll_number'].str.lower()
+    certificate_data = data[data['roll_number'] == rollno.lower()].iloc[0]
     name = certificate_data['name']
     team = certificate_data['team']
 

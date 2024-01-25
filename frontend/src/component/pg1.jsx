@@ -16,7 +16,7 @@ Celebrate your success at ITSA! Your dedication to technical excellence during t
           <div className='box'>Kritika Summer Project</div>
         </Link>
         <Link to={{ pathname: "/ls"}} className='boxes'>
-          <div className='box'>Learner Space</div>
+          <div className='box'>Learners' Space</div>
         </Link>
         <Link to={{ pathname: "/2/itsp"}} className='boxes'>
           <div className='box'>ITSP</div>

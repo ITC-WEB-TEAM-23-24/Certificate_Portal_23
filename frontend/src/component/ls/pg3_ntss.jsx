@@ -14,7 +14,7 @@ function Pg3_NTSS(){
       <div className='box-wrapper pg3'>
         <div className='boxes'>
           <a
-            href={`http://127.0.0.1:8000/download/ntss/${data.roll_number}`}
+            href={`https://itc.gymkhana.iitb.ac.in/certificateBackend/download/ntss/${data.roll_number}`}
             className='box'
           > 
             Download Certificate

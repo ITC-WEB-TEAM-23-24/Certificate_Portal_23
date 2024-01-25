@@ -14,7 +14,7 @@ function Layout(props) {
   return (
     <div className='app container'>
       <div className='pg0 container'>
-            <header> Institure Technical Council</header>
+            <header> Institute Technical Council</header>
                 <div className='text'>
                 <h1>Welcome to the Certicate Portal</h1>
                 <p>{data.name}, Download Your Certificates Here</p>

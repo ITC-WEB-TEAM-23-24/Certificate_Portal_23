@@ -14,8 +14,8 @@ import Coming_soon from './component/soon';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
+    <BrowserRouter basename='certificates'>
+      <Routes >
         <Route path="/" element={<Login/>} />
         <Route path="/0" element={<Auth/>} />
         <Route path="/1" element={<Pg1/>} />

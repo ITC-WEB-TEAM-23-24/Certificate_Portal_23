@@ -4,7 +4,7 @@ import "../assets/css/App.css"
 import { Link } from "react-router-dom";
 import loginimg from "../assets/img/login.png"
 
-const href="https://gymkhana.iitb.ac.in/profiles/oauth/authorize/?client_id=GrPHTL6apOjMxGVxK8JINy755G7LbZBKsEGS0ho4&response_type=code&scope=profile picture ldap program&redirect_uri=http://localhost:3000/0"
+const href="https://gymkhana.iitb.ac.in/profiles/oauth/authorize/?client_id=GrPHTL6apOjMxGVxK8JINy755G7LbZBKsEGS0ho4&response_type=code&scope=profile picture ldap program&redirect_uri=https://itc.gymkhana.iitb.ac.in/certificates/0"
 
 export default function  Login(){
     return(

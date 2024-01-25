@@ -7,7 +7,7 @@ export default function Auth() {
     useEffect(() => {
         try {
             var auth_code = window.location.href.split('=')[1];
-            axios.post('http://127.0.0.1:8000/userdata', {
+            axios.post('https://itc.gymkhana.iitb.ac.in/certificateBackend/userdata', {
                 code: auth_code
             })
             .then((res) => {
